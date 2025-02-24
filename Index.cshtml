@@ -1,0 +1,27 @@
+@model TipCalculator.Models.MealCostModel
+
+@{
+    ViewData["Title"] = "Tip Calculator";
+}
+
+<h1>Tip Calculator</h1>
+
+<form asp-action="Calculate" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div>
+        <label for="MealCost">Cost of the Meal:</label>
+        <input asp-for="MealCost" class="form-control" />
+        <span asp-validation-for="MealCost" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Calculate</button>
+    <a asp-action="Clear">Clear</a>
+</form>
+
+<div>
+    <h2>Tip Amounts</h2>
+    <p>15%: $@ViewBag.Tip15</p>
+    <p>18%: $@ViewBag.Tip18</p>
+    <p>20%: $@ViewBag.Tip20</p>
+</div>
